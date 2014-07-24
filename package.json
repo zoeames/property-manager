@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 "name": "property-manager",
 "version": "0.0.0",
 "description": "Simulated Property Manager wity Partying",
@@ -18,6 +19,27 @@
   "url": "https://github.com/shrutijalewar/property-manager/issues"
                                                           },
 "homepage": "https://github.com/shrutijalewar/property-manager",
+=======
+  "name": "property-manager",
+  "version": "0.0.0",
+  "description": "Creates appartment",
+  "main": "app/index.js",
+  "bin": {"coveralls" : "./node_modules/coveralls/bin/coveralls.js"},
+  "scripts": {
+   "test": "mocha test --recursive -R spec",
+   "coveralls" : "./node_modules/mocha/bin/mocha test --recursive -r blanket -R mocha-lcov-reporter | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shrutijalewar/property-manager"
+  },
+  "author": "shruti sharma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shrutijalewar/property-manager/issues"
+  },
+  "homepage": "https://github.com/shrutijalewar/property-manager",
+>>>>>>> dev
   "config": {
   "blanket": {
 "pattern": "/app/"
