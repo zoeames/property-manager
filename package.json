@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "Creates appartment",
   "main": "app/index.js",
-  "bin": {"coveralls" : "./node_modules/coveralls/bin/coveralls.js"}
+  "bin": {"coveralls" : "./node_modules/coveralls/bin/coveralls.js"},
   "scripts": {
-   "test": "mocha test --recursive -R spec"
+   "test": "mocha test --recursive -R spec",
    "coveralls" : "./node_modules/mocha/bin/mocha test --recursive -r blanket -R mocha-lcov-reporter | coveralls"
   },
   "repository": {
