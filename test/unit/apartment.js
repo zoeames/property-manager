@@ -16,4 +16,20 @@ describe('Apt', function(){
       expect (A1.renters.length).to.equal(0);
     });
   });
-});
+
+  describe('#area', function(){
+   it('should calcualate the area of an apt', function(){
+    var a1 = new Apt(a1);
+    var room1 = new Room ('living', 12, 10);
+    a1.rooms.push(room1);
+    var room2 = new Room('bed', 10, 8);
+    a1.rooms.push(room2);
+    var room3 = new Room('kitchen', 15, 10);
+    a1.rooms.push(room3);
+    console.log(a1.rooms);
+     expect(a1.area()).to.equal(350);
+      expect (a1.rooms.length).to.equal(3);
+       });
+      });
+    });
+
