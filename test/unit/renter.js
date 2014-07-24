@@ -27,7 +27,9 @@ describe('Renter', function(){
    describe('#work', function(){
    it('should add to the cash of the renter', function(){
    var renter = new Renter('Bob', 23, 'male', 'coder');
-      expect(renter.cash).to.be.at.least(1100);
+   renter.cash = 0;
+   renter.work();
+   expect(renter.cash).to.be.within(1000,  7000);
        });
     });
    describe('#payRent', function(amount){
