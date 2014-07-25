@@ -40,13 +40,14 @@ Apt.prototype.bedrooms = function(){
 };
 
 
-/*
-Apartment.prototype.isAvailable = function(){
-    if( this.bedrooms() > this.renters.length){return true;
-        }else{return false;
-            }
+Apt.prototype.isAvailable = function(){
+  if( this.bedrooms() > this.renters.length){
+    return true;
+      }else{return false;
+    }
 };
 
+/*
 Apartment.prototype.purgeEvicted = function(){
     var notEvicted = [];
       for( var i = 0; i < this.renters.length; i++){
