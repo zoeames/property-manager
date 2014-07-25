@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/shrutijalewar/property-manager.svg)](https://travis-ci.org/shrutijalewar/property-manager)
-[![Coverage Status](https://coveralls.io/repos/shrutijalewar/property-manager/badge.png)](https://coveralls.io/r/shrutijalewar/property-manager)
+#Property Manager
 
-property-manager
-================
+[![Build Status](https://travis-ci.org/zoeames/property-manager.svg)](https://travis-ci.org/zoeames/property-manager)
+
+[![Coverage Status](https://coveralls.io/repos/zoeames/property-manager/badge.png)](https://coveralls.io/r/zoeames/property-manager)
