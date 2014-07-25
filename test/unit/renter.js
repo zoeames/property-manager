@@ -25,11 +25,29 @@ describe('Renter', function(){
       });
     });
    describe('#work', function(){
-   it('should add to the cash of the renter', function(){
+   it('should add to the cash of the movie star renter', function(){
+   var renter = new Renter('Bob', 23, 'male', 'movie star');
+   renter.cash = 0;
+   renter.work();
+   expect(renter.cash).to.be.within(3000,  10000);
+       });
+   it('should add to the cash of the coder renter', function(){
    var renter = new Renter('Bob', 23, 'male', 'coder');
    renter.cash = 0;
    renter.work();
    expect(renter.cash).to.be.within(1000,  7000);
+       });
+   it('should add to the cash of the waiter renter', function(){
+   var renter = new Renter('Bob', 23, 'male', 'waiter');
+   renter.cash = 0;
+   renter.work();
+   expect(renter.cash).to.be.within(50,  250);
+       });
+   it('should add to the cash of the social worker enter', function(){
+   var renter = new Renter('Bob', 23, 'male', 'social worker');
+   renter.cash = 0;
+   renter.work();
+   expect(renter.cash).to.be.within(150,  750);
        });
     });
    describe('#payRent', function(amount){
