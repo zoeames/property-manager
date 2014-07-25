@@ -144,17 +144,44 @@ describe('Apt', function(){
      });
    });
   });
-  /*
+  
   describe('.findById', function(){
      it('should find an apartment by id',function(done){
-       global.mongodb.collection.insert({ _id: 12345, unit:'a1', rooms:[], renters:[]},function(){
-         Apt.findById({_id:12345},function(apts){
-           expect(apts).to.have.length(1);
-         done();
+       
+       var a1  = new Apt('a1');
+       var a2  = new Apt('a2');
+       //console.log(a1);
+       global.mongodb.collection('apts').insert([a1,a2], function(){
          });
-      });
+
+
+         Apt.find({},function(apts){  
+           Apt.findById(apts[0]._id,function(apt){
+             expect(apt.unit).to.equal('a1');
+             done();
+            });
+          });
+        });
+    }); 
+/*  describe('.complexArea', function(){
+   it('should calcualate the area of the aptComplex', function(done){
+    var a1 = new Apt('a1');
+    var a2 = new Apt('a2');
+    var a3 = new Apt('a3');
+      var room1 = new Room ('living', 12, 10);
+      var room2 = new Room('bed', 10, 8);
+      var room3 = new Room('kitchen', 15, 10);
+      a1.rooms.push(room1);
+      a2.rooms.push(room1, room2);
+      a3.rooms.push(room1, room2, room3);
+      //console.log(a3);
+       global.mongodb.collection('apts').insert([a1,a2,a3], function(){
+         });
+          Apt.complexArea(function(unitArea){
+            expect (unitArea).to.equal(670);
+            done();
+     });
    });
-   });
-   */
+  });*/
 });
 

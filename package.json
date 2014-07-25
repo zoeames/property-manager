@@ -1,31 +1,14 @@
 {
-"name": "property-manager",
-"version": "0.0.0",
-"description": "Simulated Property Manager wity Partying",
-"main": "app/index.js",
-"bin": {"coveralls" : "./node_modules/coveralls/bin/coveralls.js"},
-"scripts": {
-"test": "mocha test --recursive -R spec",
-"coveralls" : "./node_modules/mocha/bin/mocha test --recursive -r blanket -R mocha-lcov-reporter | coveralls"
-                          },
-"repository": {
-"type": "git",
-"url": "https://github.com/shrutijalewar/property-manager"
-                                          },
-"author": "shruti sharma <shrutijalewar@gmail.com>",
-"license": "MIT",
-"bugs": {
-  "url": "https://github.com/shrutijalewar/property-manager/issues"
-                                                          },
-"homepage": "https://github.com/shrutijalewar/property-manager",
   "name": "property-manager",
   "version": "0.0.0",
   "description": "Creates appartment",
   "main": "app/index.js",
-  "bin": {"coveralls" : "./node_modules/coveralls/bin/coveralls.js"},
+  "bin": {
+    "coveralls": "./node_modules/coveralls/bin/coveralls.js"
+  },
   "scripts": {
-   "test": "mocha test --recursive -R spec",
-   "coveralls" : "./node_modules/mocha/bin/mocha test --recursive -r blanket -R mocha-lcov-reporter | coveralls"
+    "test": "mocha test --recursive -R spec",
+    "coveralls": "./node_modules/mocha/bin/mocha test --recursive -r blanket -R mocha-lcov-reporter | coveralls"
   },
   "repository": {
     "type": "git",
@@ -38,26 +21,26 @@
   },
   "homepage": "https://github.com/shrutijalewar/property-manager",
   "config": {
-  "blanket": {
-"pattern": "/app/"
-                                                                                  }
-                                                                      },
-"dependencies": {
-  "chalk": "^0.5.1",
-  "lodash": "^2.4.1",
-  "mongodb": "^1.4.7",
-  "request": "^2.39.0",
-  "sync-prompt": "^0.4.1"
-                                                                                                  },
-"devDependencies": {
-  "blanket": "^1.1.6",
-  "chai": "^1.9.1",
-  "coveralls": "^2.11.1",
-  "grunt": "^0.4.5",
-  "grunt-contrib-jshint": "^0.10.0",
-  "grunt-contrib-watch": "^0.6.1",
-  "jshint-stylish": "^0.4.0",
-  "mocha": "^1.21.0",
-  "mocha-lcov-reporter": "0.0.1"
+    "blanket": {
+      "pattern": "/app/"
+    }
+  },
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "lodash": "^2.4.1",
+    "mongodb": "^1.4.7",
+    "request": "^2.39.0",
+    "sync-prompt": "^0.4.1"
+  },
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "chai": "^1.9.1",
+    "coveralls": "^2.11.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "jshint-stylish": "^0.4.0",
+    "mocha": "^1.21.0",
+    "mocha-lcov-reporter": "0.0.1"
   }
 }

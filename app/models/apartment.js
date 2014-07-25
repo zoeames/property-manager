@@ -2,6 +2,9 @@
 'use strict';
 
 var cApts = global.mongodb.collection('apts');
+var _=require('lodash');
+
+//var Room = require('../app/models/room');
 
 function Apt(unit){
   this.unit = unit;
@@ -43,8 +46,9 @@ Apt.prototype.bedrooms = function(){
 Apt.prototype.isAvailable = function(){
   if( this.bedrooms() > this.renters.length){
     return true;
-      }else{return false;
-    }
+      }
+ // else{return false;
+  //  }
 };
 
 Apt.prototype.purgeEvicted = function(){
@@ -78,12 +82,27 @@ Apt.find = function( query, cb){
             });
 };
 
-/*
+
 Apt.findById = function( query, cb){
-    cApts.findOne(query).toArray( function(err, object){
-          cb(object);
-            });
+  cApts.findOne(query, function(err, object){
+    cb(object);
+   });
 };
 
+/*
+Apt.complexArea = function(cb){
+  Apt.find({},function(apts){
+    //console.log(apts);
+    var complexArea = 0;
+    for(var i=0; i<apts.length; i++){
+      var apt = apts[i];
+      apt =_.create(Apt.prototype, apt);
+      console.log(apt);
+      complexArea+=apt.area();
+      }
+    cb(complexArea);
+   });
+};
 */
+                      
 module.exports = Apt;
