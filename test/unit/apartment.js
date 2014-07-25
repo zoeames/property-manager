@@ -42,5 +42,17 @@ describe('Apt', function(){
      expect(a1.cost()).to.equal(1750);
        });
     });
+  describe('#cost', function(){
+   it('should count the number of bedrooms', function(){
+    var a1 = new Apt(a1);
+    var room1 = new Room ('bedroom', 10, 10);
+    a1.rooms.push(room1);
+    var room2 = new Room ('bedroom', 30, 10);
+    a1.rooms.push(room2);
+    var room3 = new Room ('bedroom', 9, 10);
+    a1.rooms.push(room3);
+    expect(a1.bedrooms()).to.equal(3);
+    });
+    });
     });
 
