@@ -150,7 +150,11 @@ describe('Apt', function(){
        
        var a1  = new Apt('a1');
        var a2  = new Apt('a2');
+<<<<<<< HEAD
        console.log(a1);
+=======
+       //console.log(a1);
+>>>>>>> dev
        global.mongodb.collection('apts').insert([a1,a2], function(){
          });
 
@@ -163,5 +167,29 @@ describe('Apt', function(){
           });
         });
     }); 
+<<<<<<< HEAD
   });
+=======
+/*  describe('.complexArea', function(){
+   it('should calcualate the area of the aptComplex', function(done){
+    var a1 = new Apt('a1');
+    var a2 = new Apt('a2');
+    var a3 = new Apt('a3');
+      var room1 = new Room ('living', 12, 10);
+      var room2 = new Room('bed', 10, 8);
+      var room3 = new Room('kitchen', 15, 10);
+      a1.rooms.push(room1);
+      a2.rooms.push(room1, room2);
+      a3.rooms.push(room1, room2, room3);
+      //console.log(a3);
+       global.mongodb.collection('apts').insert([a1,a2,a3], function(){
+         });
+          Apt.complexArea(function(unitArea){
+            expect (unitArea).to.equal(670);
+            done();
+     });
+   });
+  });*/
+});
+>>>>>>> dev
 

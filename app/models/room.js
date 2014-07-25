@@ -9,7 +9,9 @@ function Room(name,length,width){
 
 
 Room.prototype.area = function(){
- return this.length * this.width;
+//var  length=parseInt(this.length);
+//var  width=parseInt(this.width);
+  return this.length * this.width;
 };
 
 Room.prototype.cost = function(){
