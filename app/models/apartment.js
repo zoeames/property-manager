@@ -1,7 +1,7 @@
 
 'use strict';
 
-
+var cApts = global.mongodb.collection('apts');
 
 function Apt(unit){
   this.unit = unit;
@@ -64,17 +64,19 @@ Apt.prototype.collectRent = function(){
     this.renters[i].payRent(amount); 
       }
 };
-/*
+
 Apt.prototype.save = function(cb){
-    cAppts.save(this, function(err, object){
+    cApts.save(this, function(err, object){
           cb();
             });
 };
 
+
 Apt.find = function( query, cb){
-    cAppts.find(query).toArray( function(err, object){
+    cApts.find(query).toArray( function(err, object){
           cb(object);
             });
 };
-*/
+
+
 module.exports = Apt;

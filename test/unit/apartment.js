@@ -1,19 +1,31 @@
 
 /* jshint expr:true */
-/* global describe, it */
+/* global describe, it, beforeEach, before*/
 'use strict';
 
 var expect = require('chai').expect;
-
+var Apt;
 var Room = require('../../app/models/room');
-var Apt = require('../../app/models/apartment');
+var Mongo = require('mongodb');
+var connect = require('../../app/lib/mongodb');
 var Renter = require('../../app/models/renter');
 
-//var Mongo = require('mongodb');
-//var connect = require('../../app/lib/mongodb');
 
 
 describe('Apt', function(){
+  before(function(done){
+    connect('property-manager-test', function (){
+      Apt = require('../../app/models/apartment');
+      done();
+    });
+  });
+    
+  beforeEach(function(done){
+    global.mongodb.collection('apts').remove(function(){
+    done();
+    });
+  });
+
   describe('constructor', function(){
     it('should creat an Apt unit', function(){
       var A1 = new Apt (A1);
@@ -107,5 +119,33 @@ describe('Apt', function(){
     expect(sam.isEvicted).to.be.false;
     });
   });
+
+  describe('#save', function(){
+    it('should save to the mongo databse',function(done){
+      var a1  = new Apt('a1');
+      a1.save( function(){
+        expect(a1._id).to.be.instanceof(Mongo.ObjectID);
+        done();
+        });
+     });
+  });
+  
+  describe('.find', function(){
+     it('should find all apts from mongo databse',function(done){
+       var a1  = new Apt('a1');
+       var a2  = new Apt('a2');
+       a1.save(function (){
+       a2.save(function (){
+        Apt.find( {},function(apts){
+        console.log(apts);
+          expect(apts).to.have.length(2);
+        done();
+         });
+       });
+     });
+   });
+  });
+
+
 });
 
