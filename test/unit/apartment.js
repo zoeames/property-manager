@@ -150,11 +150,8 @@ describe('Apt', function(){
        
        var a1  = new Apt('a1');
        var a2  = new Apt('a2');
-<<<<<<< HEAD
        console.log(a1);
-=======
        //console.log(a1);
->>>>>>> dev
        global.mongodb.collection('apts').insert([a1,a2], function(){
          });
 
@@ -167,9 +164,7 @@ describe('Apt', function(){
           });
         });
     }); 
-<<<<<<< HEAD
   });
-=======
 /*  describe('.complexArea', function(){
    it('should calcualate the area of the aptComplex', function(done){
     var a1 = new Apt('a1');
@@ -190,6 +185,5 @@ describe('Apt', function(){
      });
    });
   });*/
-});
->>>>>>> dev
+//});
 

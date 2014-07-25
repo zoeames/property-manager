@@ -84,18 +84,16 @@ Apt.find = function( query, cb){
 
 
 Apt.findById = function( query, cb){
-<<<<<<< HEAD
     cApts.findOne(query, function(err, object){
           cb(object);
             });
 };
 
 
-=======
-  cApts.findOne(query, function(err, object){
-    cb(object);
-   });
-};
+  //cApts.findOne(query, function(err, object){
+   // cb(object);
+  // });
+//};
 
 /*
 Apt.complexArea = function(cb){
@@ -113,5 +111,4 @@ Apt.complexArea = function(cb){
 };
 */
                       
->>>>>>> dev
 module.exports = Apt;
