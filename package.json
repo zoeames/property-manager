@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
 "name": "property-manager",
 "version": "0.0.0",
 "description": "Simulated Property Manager wity Partying",
@@ -19,7 +18,6 @@
   "url": "https://github.com/shrutijalewar/property-manager/issues"
                                                           },
 "homepage": "https://github.com/shrutijalewar/property-manager",
-=======
   "name": "property-manager",
   "version": "0.0.0",
   "description": "Creates appartment",
@@ -39,7 +37,6 @@
     "url": "https://github.com/shrutijalewar/property-manager/issues"
   },
   "homepage": "https://github.com/shrutijalewar/property-manager",
->>>>>>> dev
   "config": {
   "blanket": {
 "pattern": "/app/"

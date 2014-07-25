@@ -1,7 +1,6 @@
 
 'use strict';
 
-var Room = require('../../app/models/room');
 
 
 function Apt(unit){
@@ -14,7 +13,7 @@ function Apt(unit){
 Apt.prototype.area = function(){
  var totalArea = 0;
  for(var i=0; i<this.rooms.length; i++){
-  var areaRoom = this.rooms[i].Room.area();
+  var areaRoom = this.rooms[i].area();
    totalArea+=areaRoom;
  }
   return totalArea;
