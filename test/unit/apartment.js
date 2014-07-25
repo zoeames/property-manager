@@ -137,7 +137,6 @@ describe('Apt', function(){
        a1.save(function (){
        a2.save(function (){
         Apt.find( {},function(apts){
-        console.log(apts);
           expect(apts).to.have.length(2);
         done();
          });
@@ -145,7 +144,17 @@ describe('Apt', function(){
      });
    });
   });
-
-
+  /*
+  describe('.findById', function(){
+     it('should find an apartment by id',function(done){
+       global.mongodb.collection.insert({ _id: 12345, unit:'a1', rooms:[], renters:[]},function(){
+         Apt.findById({_id:12345},function(apts){
+           expect(apts).to.have.length(1);
+         done();
+         });
+      });
+   });
+   });
+   */
 });
 
