@@ -144,17 +144,24 @@ describe('Apt', function(){
      });
    });
   });
-  /*
+  
   describe('.findById', function(){
      it('should find an apartment by id',function(done){
-       global.mongodb.collection.insert({ _id: 12345, unit:'a1', rooms:[], renters:[]},function(){
-         Apt.findById({_id:12345},function(apts){
-           expect(apts).to.have.length(1);
-         done();
+       
+       var a1  = new Apt('a1');
+       var a2  = new Apt('a2');
+       console.log(a1);
+       global.mongodb.collection('apts').insert([a1,a2], function(){
          });
-      });
-   });
-   });
-   */
-});
+
+
+         Apt.find({},function(apts){  
+           Apt.findById(apts[0]._id,function(apt){
+             expect(apt.unit).to.equal('a1');
+             done();
+            });
+          });
+        });
+    }); 
+  });
 

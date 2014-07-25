@@ -78,12 +78,12 @@ Apt.find = function( query, cb){
             });
 };
 
-/*
+
 Apt.findById = function( query, cb){
-    cApts.findOne(query).toArray( function(err, object){
+    cApts.findOne(query, function(err, object){
           cb(object);
             });
 };
 
-*/
+
 module.exports = Apt;
