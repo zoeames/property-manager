@@ -4,9 +4,14 @@
 'use strict';
 
 var expect = require('chai').expect;
+
 var Room = require('../../app/models/room');
 var Apt = require('../../app/models/apartment');
 var Renter = require('../../app/models/renter');
+
+//var Mongo = require('mongodb');
+//var connect = require('../../app/lib/mongodb');
+
 
 describe('Apt', function(){
   describe('constructor', function(){
@@ -65,6 +70,41 @@ describe('Apt', function(){
     var bob = new Renter('Bob', 23, 'male', 'coder');
     a1.renters.push(bob);
     expect(a1.isAvailable()).to.be.true;
+    });
+  });
+  describe('#purgeEvicted', function(){
+   it('should remove evited renters from renter array', function(){
+    var a1 = new Apt(a1);
+    var bob = new Renter('Bob', 23, 'male', 'coder');
+    a1.renters.push(bob);
+    var sam = new Renter('Sam', 2, 'male', 'waiter');
+    a1.renters.push(sam);
+    expect(a1.renters.length).to.equal(2);
+    sam.isEvicted = true;
+    a1.purgeEvicted();
+    expect(a1.renters.length).to.equal(1);
+    });
+  });
+  describe('#collectRent', function(){
+   it('should collect rent from all renters in a building', function(){
+    var a1 = new Apt(a1);
+    var bob = new Renter('Bob', 23, 'male', 'coder');
+    bob.cash = 2000;
+    a1.renters.push(bob);
+    var sam = new Renter('Sam', 2, 'male', 'waiter');
+    sam.cash = 3000;
+    a1.renters.push(sam);
+    var room1 = new Room ('bedroom', 100, 10);
+    a1.rooms.push(room1);
+    var room2 = new Room ('bedroom', 10, 10);
+    
+    a1.rooms.push(room2);
+    a1.collectRent();
+    
+    expect(bob.cash).to.equal(2000);
+    expect(bob.isEvicted).to.be.true;
+    expect(sam.cash).to.equal(250);
+    expect(sam.isEvicted).to.be.false;
     });
   });
 });

@@ -47,31 +47,31 @@ Apt.prototype.isAvailable = function(){
     }
 };
 
+Apt.prototype.purgeEvicted = function(){
+ var tenant = [];
+ for( var i = 0; i < this.renters.length; i++){
+   if( this.renters[i].isEvicted === false){
+     tenant.push(this.renters[i]);
+     }
+   }
+this.renters = tenant;
+};
+
+
+Apt.prototype.collectRent = function(){
+  var amount = (this.cost()/this.renters.length);
+  for( var i = 0; i < this.renters.length; i++){
+    this.renters[i].payRent(amount); 
+      }
+};
 /*
-Apartment.prototype.purgeEvicted = function(){
-    var notEvicted = [];
-      for( var i = 0; i < this.renters.length; i++){
-            if( this.renters[i].isEvicted === false){
-                    notEvicted.push(this.renters[i]);
-                        }
-              }
-        this.renters = notEvicted;
-};
-
-Apartment.prototype.collectRent = function(){
-    var amount = (this.cost()/this.renters.length);
-      for( var i = 0; i < this.renters.length; i++){
-           this.renters[i].payRent(amount); 
-             }
-};
-
-Apartment.prototype.save = function(cb){
+Apt.prototype.save = function(cb){
     cAppts.save(this, function(err, object){
           cb();
             });
 };
 
-Apartment.find = function( query, cb){
+Apt.find = function( query, cb){
     cAppts.find(query).toArray( function(err, object){
           cb(object);
             });
