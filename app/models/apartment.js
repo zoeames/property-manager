@@ -92,10 +92,55 @@ Apt.findById = function( id, cb){
 };
 
 
+Apt.deleteById = function(id, cb){
+  var query = {_id:id};
+  cApts.remove(query, function(){
+  cb();
+ });
+};
+
+Apt.area = function(cb){
+  Apt.find({}, function(apts){
+  var sum = 0;
+  for(var i = 0; i < apts.length; i++){
+    sum += apts[i].area();
+  }
+  cb(sum);
+  });
+};
 
 
+Apt.cost = function(cb){
+  Apt.find({}, function(apts){
+ var sum = 0;
+ for(var i = 0; i < apts.length; i++){
+ sum += apts[i].cost();
+ }
+ cb(sum);
+ });
+};
 
+Apt.tenants = function(cb){
+  Apt.find({}, function(apts){
+  var sum = 0;
+  for(var i = 0; i < apts.length; i++){
+    sum += apts[i].renters.length;
+   }
+  cb(sum);
+  });
+};
 
+Apt.revenue = function(cb){
+  Apt.find({}, function(apts){
+  var sum = 0;
+  for(var i = 0; i < apts.length; i++){
+   if(apts[i].renters.length > 0){
+     sum += apts[i].cost();
+     }
+   }
+  cb(sum);
+ });
+};
 
 
 // Prototype Function ///

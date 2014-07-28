@@ -128,6 +128,55 @@ describe('Apt', function(){
             });
           });
         });
-    }); 
+    });
+
+describe('.deleteById', function(){
+   it('should remove apartment in database by id', function(done){
+     Apt.find({}, function(apts){
+       Apt.deleteById(apts[0]._id, function(){
+         Apt.find({}, function(apts2){
+           expect(apts2).to.have.length(1);
+           done();
+           });
+        });
+      });
+   });
+ });
+ 
+describe('.area', function(){
+    it('should return the total area of all apartments', function(done){
+     Apt.area(function(area){
+       expect(area).to.equal(2560);
+       done();
+       });
+     });
   });
+
+describe('.cost', function(){
+  it('should return the total cost of all apartments', function(done){
+   Apt.cost(function(cost){
+   expect(cost).to.equal(12800);
+   done();
+   });
+ });
+});
+
+describe('.tenants', function(){
+  it('should return number of tenants living in complex', function(done){
+    Apt.tenants(function(tenants){
+      expect(tenants).to.equal(2);
+      done();
+     });
+   });
+ });
+
+describe('.revenue', function(){
+  it('should return the total revenue from all occupied apartments', function(done){
+    Apt.revenue(function(revenue){
+      expect(revenue).to.equal(3800);
+        done();
+      });
+    });
+  });
+});
 
