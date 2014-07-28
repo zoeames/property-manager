@@ -23,16 +23,17 @@ Renter.prototype.work = function (){
 Renter.prototype.payRent = function(amount){
   amount = parseInt(amount);
 if(this.cash > amount){
-  this.cash -= amount;}else{
-        this.isEvicted = true;
+  this.cash -= amount;
+  }else{
+    this.isEvicted = true;
   }
 };
 
 Renter.prototype.party = function (){
   if(this.isEvicted){return;}
 var party = Math.floor(Math.random()*10)+1;
-if (party > 8) {
-this.isEvicted = true;
+  if (party > 8) {
+   this.isEvicted = true;
 }
 
 };

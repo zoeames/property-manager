@@ -1,10 +1,10 @@
 
 'use strict';
-
+var Room = require('./room');
+var Renter = require('./renter');
 var cApts = global.mongodb.collection('apts');
 var _=require('lodash');
 
-//var Room = require('../app/models/room');
 
 function Apt(unit){
   this.unit = unit;
@@ -47,8 +47,6 @@ Apt.prototype.isAvailable = function(){
   if( this.bedrooms() > this.renters.length){
     return true;
       }
- // else{return false;
-  //  }
 };
 
 Apt.prototype.purgeEvicted = function(){
@@ -77,38 +75,46 @@ Apt.prototype.save = function(cb){
 
 
 Apt.find = function( query, cb){
-    cApts.find(query).toArray( function(err, object){
-          cb(object);
-            });
-};
-
-
-Apt.findById = function( query, cb){
-    cApts.findOne(query, function(err, object){
-          cb(object);
-            });
-};
-
-
-  //cApts.findOne(query, function(err, object){
-   // cb(object);
-  // });
-//};
-
-/*
-Apt.complexArea = function(cb){
-  Apt.find({},function(apts){
-    //console.log(apts);
-    var complexArea = 0;
-    for(var i=0; i<apts.length; i++){
-      var apt = apts[i];
-      apt =_.create(Apt.prototype, apt);
-      console.log(apt);
-      complexArea+=apt.area();
-      }
-    cb(complexArea);
+  cApts.find(query).toArray(function(err, apts){
+    for(var i = 0; i < apts.length; i++){
+      apts[i] = reProto(apts[i]);
+       }
+     cb(apts);
    });
 };
-*/
-                      
+
+
+Apt.findById = function( id, cb){
+  var query = {_id:id};
+  cApts.findOne(query, function(err, apt){
+  cb(reProto(apt));
+  });
+};
+
+
+
+
+
+
+
+
+// Prototype Function ///
+
+function reProto(apt){
+  var room, renter;
+    for(var i = 0; i < apt.rooms.length; i++){
+      room = _.create(Room.prototype, apt.rooms[i]);
+      apt.rooms[i] = room;
+      }
+    for(var j = 0; j < apt.renters.length; j++){
+      renter = _.create(Renter.prototype, apt.renters[j]);
+      apt.renters[j] = renter;
+      }
+      apt = _.create(Apt.prototype, apt);
+
+     return apt;
+}
+
+
+
 module.exports = Apt;
